@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+	<head>
+<meta charset="YTF-8">
+<title> javascript</title>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
+<style>
+#fab   /*the big black/grey colored div */
+    {
+        background-color: grey;
+        width:700px;
+        height:400px; 
+        position: relative;
+        
+    }  
+    
+   
+.button /* the round button which you will click */
+    {
+        border-radius:100px;
+        background-color:black;
+        width:90px;
+        height:90px;
+        position: relative;
+        left:320px;
+        top:150px;
+        user-select: none;
+        cursor: pointer;
+        
+        
+    }
+    .rot /*rotating 720deg clockwise */
+    {   
+    transform: rotate(90deg);
+        transition: transform 1s ease;
+    } 
+    
+    .rot2 /*rotating 720deg anticlockwise */
+    {
+        transform: rotate(-90deg);
+         transition: transform 1s ease;
+    }
+    
+    .a
+    {
+        transition: background-color 900ms linear;
+     
+    }
+    
+  .new /*a class for image*/
+    {
+       
+         position:absolute;
+        top:180px;
+        cursor: pointer;     
+    }
+    .n1 /*a class for image*/
+    {
+        
+        left:80.6px;
+        
+    }
+   .n2 /*a class for image*/
+    {
+       
+        left:215.3px;
+        
+    }
+    .n3 /*a class for image*/
+    {
+       
+        left:360.8px;
+    }
+    .n4 /*a class for image*/
+    {
+       
+        left:500.6px;
+    }
+    #comp /*an id for image*/
+    {
+        width:100px; height:100px; position:absolute; left:5px; top:8px;
+       display: none;
+    }
+    #comp2      /*an id for image*/
+
+    {
+        width:100px; height:100px; position:absolute; left:5px; top:8px; display: none;
+    }
+    #comp3    /*an id for image*/
+
+    {
+        width:100px; height:100px; position:absolute; left:5px; top:8px; display: none;
+    }
+    #comp4      /*an id for image*/
+    {
+        width:100px; height:100px; position:absolute; left:5px; top:8px; display: none;
+    }
+    
+    .box  /* a class for the boxes that appeared */
+    {
+        background-color:grey;
+        width:200px;
+        height: 50px;
+        margin-bottom: 20px;
+        position: relative;
+        left:400px;
+        border-radius: 30px;
+        text-align: center;
+        font-family: fantasy;
+        align-items:baseline;
+        user-select: "none";
+        
+    }
+    
+    .box1  /* a class for the boxes that appeared */
+    {
+        display: none;
+    }
+    
+     .box2 /* a class for the boxes that appeared */
+    {
+        display: none;
+    }
+     
+     .box3   /* a class for the boxes that appeared */
+    {
+        display: none;
+    }
+    
+     .box4          /* a class for the boxes that appeared */
+    {
+        display: none;
+    }
+    
+    .point  
+    {
+        pointer-events: none;
+    }
+    
+    
+    
+</style>
+
+
+
+
+</head>
+<body>
+<!--for the whole black/grey div-->
+<div id="fab">
+    
+    <!--the round button with plus sign-->
+    
+    <div class="button">
+             <span  style="color:white; font-size: 350%; position:relative; left:30px; top:13px;"><b>+</b></span>
+    </div>
+    
+    <!--the image -->
+    
+   <div class="new n1" >
+  <img src="alarm.png" id="comp" >
+       <span class="caption" style="color:white; position:relative; bottom:15px; right:10px;"> </span>
+ </div> 
+    
+    
+   <div class="new n2" >
+    <img src="calendar.png" id="comp2" ><span class="caption" style="color:white; position:relative; bottom:15px; right:20px;"></span>
+   
+ </div> 
+    
+    <div class="new n3" >
+    <img src="temp.png" id="comp3" >
+   <span class="caption" style="color:white; position:relative; bottom:15px; right:30px;"></span>
+ </div> 
+    
+    <div class="new n4" >
+    
+        <img src="news.png" id="comp4" ><span class="caption" style="color:white; position:relative; bottom:15px; right:5px;"></span>
+
+ </div> 
+   
+    
+    <!--for boxes that appear as options-->
+    
+    <div class="box1 box" id="b1">
+     Option
+    </div>
+    
+    <div class="box2 box" id="b2">
+      Option
+    </div>
+    
+    <div class="box3 box" id="b3">
+   Option
+    </div>
+    
+    <div class="box4 box" id="b4">
+    Option
+    </div>
+    
+ </div>
+    
+  
+  
+    
+    
+
+
+    
+    
+    
+    
+
+
+</body>
+<script>
+let some=1; /*variable to be used */
+    
+let c1=1;    
+    
+    
+    
+    
+    document.getElementsByClassName("button")[0].addEventListener("click",myfunc);  /*when round button is clicked*/
+    
+     
+    function myfunc()
+    {   if(some==1)
+    {$(".button").animate({
+           
+            top: "1px"
+        },500);
+        document.getElementsByClassName("button")[0].classList.add("rot"); 
+     p();
+            document.getElementsByClassName("button")[0].classList.remove("rot2"); 
+$("#fab").css("background-color","black");  
+        document.getElementById("fab").classList.add("a");
+     
+     setTimeout(function(){
+         $("#comp").show("puff",900);
+         
+     },700);
+      setTimeout(function(){
+         $("#comp2").show("puff",1100);
+     },700);
+      setTimeout(function(){
+        $("#comp3").show("puff",1300); 
+     },700);
+      setTimeout(function(){
+         $("#comp4").show("puff",1500);
+     },700);
+     
+     some=2;
+    
+   /* comp */ document.getElementById("comp").style.width="100px";
+    document.getElementById("comp").style.height="100px";
+    
+     document.getElementById("comp").style.left="1px";
+     
+     document.getElementById("comp").style.top="2px";
+/*comp over*/
+     
+     /*comp 2*/
+     
+     document.getElementById("comp2").style.width="100px";
+    document.getElementById("comp2").style.height="100px";
+    
+     document.getElementById("comp2").style.left="10px";
+     
+     document.getElementById("comp2").style.top="2px";
+     
+     /*comp 2 over*/
+     
+    /*comp 3 */
+     
+     document.getElementById("comp3").style.width="100px";
+    document.getElementById("comp3").style.height="100px";
+    
+     document.getElementById("comp3").style.left="15px";
+     
+     document.getElementById("comp3").style.top="2px";
+     
+     
+     /* comp 3 over*/
+     
+       
+    /*comp 4 */
+     
+     document.getElementById("comp4").style.width="100px";
+    document.getElementById("comp4").style.height="100px";
+    
+     document.getElementById("comp4").style.left="30px";
+     
+     document.getElementById("comp4").style.top="2px";
+      /* comp 4 over*/
+   document.getElementById("comp").classList.remove("point");
+     document.getElementById("comp2").classList.remove("point");
+     document.getElementById("comp3").classList.remove("point");
+     document.getElementById("comp4").classList.remove("point");
+     
+    
+    }
+     else if(some==2)
+         {
+             $(".button").animate({
+                 left:"320px",
+        top:"150px"
+             },500);
+             document.getElementsByClassName("button")[0].classList.add("rot2");   
+             document.getElementsByClassName("button")[0].classList.remove("rot");
+             $("#fab").css("background-color","grey");  
+        document.getElementById("fab").classList.add("a");
+             some=1;
+             
+              setTimeout(function(){
+         $("#comp").hide("puff",100);
+         
+     },10);
+      setTimeout(function(){
+         $("#comp2").hide("puff",200);
+     },10);
+      setTimeout(function(){
+        $("#comp3").hide("puff",300); 
+     },10);
+      setTimeout(function(){
+         $("#comp4").hide("puff",400);
+     },10);
+             
+              setTimeout(function(){
+         $(".box1").hide("puff",100);
+         
+     },10);
+      setTimeout(function(){
+         $(".box2").hide("puff",200);
+     },10);
+      setTimeout(function(){
+        $(".box3").hide("puff",300); 
+     },10);
+      setTimeout(function(){
+         $(".box4").hide("puff",400);
+     },10);
+             
+             
+             
+         }
+     
+        } /*end of myfunc */
+
+   
+    
+    /* mousover in front  (present in this function p()*/
+   function p() {
+       document.getElementsByClassName("button")[0].onmouseover=function()
+   {
+       if(some===1)
+           document.getElementsByClassName("button")[0].style.boxShadow="5px 5px 100px black";
+       
+       
+   }
+    document.getElementsByClassName("button")[0].onmouseout=function()
+   {
+        document.getElementsByClassName("button")[0].style.boxShadow="none";
+   }
+    
+    document.getElementById("comp").onmouseover=function()
+    {
+        document.getElementById("comp").style.width="110px";
+         document.getElementById("comp").style.height="110px";
+    }
+   
+    
+     document.getElementById("comp2").onmouseover=function()
+     {
+         document.getElementById("comp2").style.width="110px";
+         document.getElementById("comp2").style.height="110px";
+     }
+    
+     document.getElementById("comp3").onmouseover=function()
+     {
+         document.getElementById("comp3").style.width="110px";
+         document.getElementById("comp3").style.height="110px";
+     }
+     
+     document.getElementById("comp4").onmouseover=function()
+     {
+         document.getElementById("comp4").style.width="110px";
+         document.getElementById("comp4").style.height="110px";
+     }
+     document.getElementById("comp").onmouseout=function()
+    {
+        document.getElementById("comp").style.width="100px";
+         document.getElementById("comp").style.height="100px";
+    }
+    
+ 
+    document.getElementById("comp2").onmouseout=function()
+    {
+        document.getElementById("comp2").style.width="100px";
+         document.getElementById("comp2").style.height="100px";
+    }
+    
+     document.getElementById("comp3").onmouseout=function()
+    {
+        document.getElementById("comp3").style.width="100px";
+         document.getElementById("comp3").style.height="100px";
+    }
+    
+      document.getElementById("comp4").onmouseout=function()
+    {
+        document.getElementById("comp4").style.width="100px";
+         document.getElementById("comp4").style.height="100px";
+    }
+      
+      
+   }
+   
+      /*mouse over ends*/
+      
+      /*clicking animnation image1 the clock*/
+    
+$("#comp").click(function()
+              {
+    $("#comp").animate({
+        width:"200px",
+        height: "200px",
+        top: "-50px",
+        
+    },500);
+    
+    $("#comp2").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"420px",
+        top:"-60px"
+    },500);
+    
+     $("#comp3").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"276px"
+    },500);
+    
+     $("#comp4").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"136px",
+        top: "70px"
+         
+    },500);
+    
+    setTimeout(function(){$(".box1").show("drop",400);
+    $(".box2").show("drop",600);
+    $(".box3").show("drop",800);
+    $(".box4").show("drop",1000);},600);
+    
+   pevents();
+    compf();
+    mouseOVER();
+      mouseOUT();
+    
+ });
+    
+    
+    /*clicking animnation image1 the calendar*/
+    $("#comp2").click(function()
+{
+    
+     $("#comp2").animate({
+        width:"200px",
+        height: "200px",
+        top: "-70px",
+         left: "-150px"
+        
+    },500);
+    
+    $("#comp").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"557px",
+        top:"-60px"
+    },500);
+    
+     $("#comp3").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"276px"
+    },500);
+    
+    
+    
+     $("#comp4").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"136px",
+        top: "70px"
+         
+    },500);
+    
+      setTimeout(function(){$(".box1").show("drop",400);
+    $(".box2").show("drop",600);
+    $(".box3").show("drop",800);
+    $(".box4").show("drop",1000);},600);
+  compf();
+    mouseOVER();
+      mouseOUT();
+    pevents();
+});  
+    
+    
+    
+    /*clicking animnation image1 the cloud*/
+    
+    $("#comp3").click(function()
+{
+    
+     $("#comp3").animate({
+        width:"200px",
+        height: "200px",
+        top: "-70px",
+         left: "-270px"
+        
+    },500);
+    
+    $("#comp").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"557px",
+        top:"-60px"
+    },500);
+    
+      $("#comp2").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"420px",
+        top:"5px"
+    },500);
+    
+    
+    
+     $("#comp4").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"136px",
+        top: "70px"
+         
+    },500);
+    
+      setTimeout(function(){$(".box1").show("drop",400);
+    $(".box2").show("drop",600);
+    $(".box3").show("drop",800);
+    $(".box4").show("drop",1000);},600);
+  compf();
+    mouseOVER();
+      mouseOUT();
+        pevents();
+});  
+    
+    
+    
+    /*clicking animnation image1 the newspaper*/
+     $("#comp4").click(function()
+{
+    
+     $("#comp4").animate({
+        width:"200px",
+        height: "200px",
+        top: "-70px",
+         left: "-370px"
+        
+    },500);
+    
+    $("#comp").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"557px",
+        top:"-60px"
+    },500);
+    
+      $("#comp2").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"420px",
+        top:"5px"
+    },500);
+    
+    
+    
+     $("#comp3").animate({ 
+    width:"30px",
+        height:"30px",
+        left:"274px",
+        top: "70px"
+         
+    },500);
+    
+      setTimeout(function(){$(".box1").show("drop",400);
+    $(".box2").show("drop",600);
+    $(".box3").show("drop",800);
+    $(".box4").show("drop",1000);},600);
+  compf();
+    mouseOVER();
+      mouseOUT();
+         pevents();
+});  
+    
+    
+    /*to stop the use of cursor when one item is clicked so that no other item gets clicked when one is active*/
+    function pevents()
+    {
+        document.getElementById("comp").classList.add("point");
+     document.getElementById("comp2").classList.add("point");
+     document.getElementById("comp3").classList.add("point");
+     document.getElementById("comp4").classList.add("point");
+    }
+    
+    
+    /* mouse over events on images */
+    function compf()
+    {
+       document.getElementById("comp").onmouseover="none";
+    document.getElementById("comp").onmouseout="none";
+        document.getElementById("comp2").onmouseover="none";
+    document.getElementById("comp2").onmouseout="none";
+        document.getElementById("comp3").onmouseover="none";
+    document.getElementById("comp3").onmouseout="none";
+        document.getElementById("comp4").onmouseover="none";
+    document.getElementById("comp4").onmouseout="none";
+       
+     }
+    
+    
+    
+
+    
+    /*mouse hover over 4 boxes */
+function mouseOVER()
+    {
+ document.getElementById("b1").onmouseover=function()
+        {
+           document.getElementById("b1").style.backgroundColor="white"; 
+        }
+ document.getElementById("b2").onmouseover=function()
+        {
+           document.getElementById("b2").style.backgroundColor="white"; 
+        }
+ document.getElementById("b3").onmouseover=function()
+        {
+           document.getElementById("b3").style.backgroundColor="white"; 
+        }
+ document.getElementById("b4").onmouseover=function()
+        {
+           document.getElementById("b4").style.backgroundColor="white"; 
+        }
+ 
+ 
+ 
+ 
+ 
+    }
+      
+      
+    function mouseOUT()
+    {
+ document.getElementById("b1").onmouseout=function()
+        {
+           document.getElementById("b1").style.backgroundColor="grey"; 
+        }
+ document.getElementById("b2").onmouseout=function()
+        {
+           document.getElementById("b2").style.backgroundColor="grey"; 
+        }
+ document.getElementById("b3").onmouseout=function()
+        {
+           document.getElementById("b3").style.backgroundColor="grey"; 
+        }
+ document.getElementById("b4").onmouseout=function()
+        {
+           document.getElementById("b4").style.backgroundColor="grey"; 
+        }
+    }
+    
+    
+    /*this mouseover mouse out ends */
+    
+   
+
+    
+    
+    
+    
+    
+    
+
+</script>
+</html>
